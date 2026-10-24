@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>For Muskuuu - A Sorry Made of Balloons</title>
+<meta name="description" content="Hey Muskuuu, I made something for you. Pop the balloons, one by one.">
+<meta name="theme-color" content="#e8643a">
+<meta property="og:title" content="For Muskuuu - A Sorry Made of Balloons">
+<meta property="og:description" content="Hey Muskuuu, I made something for you. Pop the balloons, one by one.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="For Muskuuu">
+<meta property="og:url" content="https://YOUR-USERNAME.github.io/YOUR-REPO/">
+<meta property="og:image" content="https://YOUR-USERNAME.github.io/YOUR-REPO/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The first page of the website: a Forgiveness Meter with a Tap to forgive button">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="For Muskuuu - A Sorry Made of Balloons">
+<meta name="twitter:description" content="Hey Muskuuu, I made something for you. Pop the balloons, one by one.">
+<meta name="twitter:image:alt" content="The first page of the website: a Forgiveness Meter with a Tap to forgive button">
+<meta name="twitter:image" content="https://YOUR-USERNAME.github.io/YOUR-REPO/og-image.jpg">
+<link rel="canonical" href="https://YOUR-USERNAME.github.io/YOUR-REPO/">
+<link rel="icon" type="image/png" href="sticker-excited.png">
+<link rel="apple-touch-icon" href="sticker-excited.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<audio id="bgm" src="music_trimmed.mp3" autoplay loop preload="auto" playsinline></audio>
+<div class="frame"><div class="bar"><i></i><i></i><i></i></div>
+<div class="page">
+
+<section class="screen on" id="s-meter">
+<h1>Forgiveness Meter</h1>
+<p>Hey Muskuuu, tap the button and fill it up 🥺</p>
+<svg id="gauge" viewBox="0 0 240 130"><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#c0392b"/><stop offset=".5" stop-color="#e0a030"/><stop offset="1" stop-color="#6cb04a"/></linearGradient></defs>
+<path d="M30 110A90 90 0 0 1 210 110" fill="none" stroke="#f6d5cb" stroke-width="16" stroke-linecap="round"/>
+<path id="arc" d="M30 110A90 90 0 0 1 210 110" fill="none" stroke="url(#g)" stroke-width="16" stroke-linecap="round" pathLength="100" stroke-dasharray="0 100"/>
+<line id="needle" x1="120" y1="110" x2="120" y2="40" stroke="#2b2325" stroke-width="3" stroke-linecap="round" style="transform-origin:120px 110px;transform:rotate(-90deg);transition:transform .6s"/>
+<circle cx="120" cy="110" r="7" fill="#c0392b"/><text x="22" y="126" font-size="8" fill="#7a4a3f">0%</text><text x="196" y="126" font-size="8" fill="#7a4a3f">100%</text></svg>
+<div class="pct" id="pct">0%</div><div class="emo" id="emo">😤</div><p id="cap">Still angry...</p>
+<img class="oval big" src="sticker-main.png" alt="">
+<button class="btn" id="tap">Tap to forgive 💗</button>
+<button class="btn ghost" id="cont" disabled>Continue ➜</button>
+</section>
+
+<section class="screen" id="s-made">
+<h1>I have made something for you</h1>
+<img class="oval big" src="sticker-main.png" alt="">
+<p>Do you wanna see it?</p>
+<div class="row"><button class="btn" data-go="s-you">Yes</button><button class="btn ghost" data-go="s-angry">No</button></div>
+</section>
+
+<section class="screen" id="s-angry">
+<div class="how">How dare you!?</div>
+<img class="circle" src="sticker-angry.png" alt="">
+<p class="dim">Okay okay, don't cry... let's try that again 🥺</p>
+<button class="btn" data-go="s-excited">Try again</button>
+</section>
+
+<section class="screen" id="s-excited">
+<h1>Are you really excited?</h1>
+<img class="circle" src="sticker-excited.png" alt="">
+<div class="row"><button class="btn" data-go="s-you">Yes</button><button class="btn" data-go="s-you">Yes</button></div>
+</section>
+
+<section class="screen" id="s-you">
+<h1 style="transform:none">You Are My</h1>
+<div class="you"><img src="sticker-pose.png" alt="">
+<span>peace 🕊️</span><span>home 🏠</span><span>my lifeline ❤️</span><span>partner in crime 😜</span><span>happy place 🌈</span><span>favourite person ✨</span><span>bestie by choice 💗</span></div>
+<button class="btn" data-go="s-balloons">Continue</button>
+</section>
+
+<section class="screen" id="s-balloons">
+<h1>Each balloon has a sorry</h1>
+<p>Pop them, one by one 🎈</p>
+<div class="balloons" id="bals"><button class="bal" data-i="0" aria-label="Balloon 1"></button><button class="bal" data-i="1" aria-label="Balloon 2"></button><button class="bal" data-i="2" aria-label="Balloon 3"></button><button class="bal" data-i="3" aria-label="Balloon 4"></button></div>
+<div class="count" id="count">0 / 4 popped</div>
+<div class="prog"><div class="l"><span>Forgiveness</span><span>100%</span></div><div class="track"><div class="fill" id="fill"></div></div></div>
+<button class="btn" id="toCert" disabled>See your certificate 💗</button>
+<div class="modal" id="modal"><div class="card"><small id="mnum"></small><h2 id="mtitle"></h2><div class="cbody" id="mbody"></div><button class="btn" id="okay">Okay 💗</button></div></div>
+</section>
+
+<section class="screen" id="s-cert">
+<h1>Your Official Certificate</h1>
+<div class="cert"><div class="seal">SORRY<span>★</span></div><h3>CERTIFICATE OF APOLOGY</h3><p class="dim pres">this certificate is presented to</p><div class="name">Muskuuu</div>
+<p class="body">This is to certify that Zaid is truly, deeply and madly sorry — and that Muskuuu is the most loving, patient and wonderful partner in the whole world.</p>
+<p class="thanks"><i>Thank you for being so wonderful.</i></p><div class="heart">❤️</div></div>
+</section>
+
+</div></div>
+<script src="script.js"></script>
+</body>
+</html>
